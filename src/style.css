@@ -1,0 +1,30 @@
+.weather-app {
+  max-width: 650px;
+  margin: 30px auto;
+  padding: 30px;
+  border: 1px solid #ff6f3c;
+  border-radius: 10px;
+  font-family: "Edu NSW ACT Foundation", cursive;
+  font-weight: lighter !important;
+}
+
+h1 {
+  font-size: 24px;
+  text-align: left;
+  line-height: 20px;
+  margin-bottom: 0;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+  display: block;
+
+  font-size: 15px;
+}
+
+a {
+  text-decoration: none;
+}
