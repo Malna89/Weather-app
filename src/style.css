@@ -29,10 +29,11 @@ ul {
 li {
   list-style: none;
   display: block;
-  text-transform: capitalize;
   font-size: 15px;
 }
-
+li:first-letter {
+  text-transform: capitalize;
+}
 .overview {
   margin-bottom: 20px;
 }
