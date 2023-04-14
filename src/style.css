@@ -1,5 +1,5 @@
 .weather-app-wrapper {
-  max-width: 650px;
+  max-width: 700px;
   margin: 30px auto;
 }
 
@@ -29,7 +29,7 @@ ul {
 li {
   list-style: none;
   display: block;
-
+  text-transform: capitalize;
   font-size: 15px;
 }
 
