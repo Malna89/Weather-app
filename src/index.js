@@ -30,6 +30,7 @@ function displayTemperature(response) {
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
+  console.log(response.data.temperature.current);
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
   cityElement.innerHTML = response.data.city;
   description.innerHTML = response.data.condition.description;
@@ -58,3 +59,20 @@ function handleSubmit(event) {
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+
+
+function retrievePosition(coordinates) {
+  let apiKey = "63815861405dte0ec28a7f4e15fobb09";
+  let lon = coordinates.longitude;
+  let lat = coordinates.latitude;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=${lat}&lon=${lon}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function getCurrentLocation() {
+  navigator.geolocation.getCurrentPosition(retrievePosition);
+}
+
+let currentCity = document.querySelector("#current-location");
+currentCity.addEventListener("click", getCurrentLocation);
