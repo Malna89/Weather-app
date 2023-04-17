@@ -1,4 +1,3 @@
-
 .weather-app-wrapper {
   max-width: 700px;
   margin: 30px auto;
@@ -57,4 +56,21 @@ a {
   position: relative;
   font-size: 18px;
   top: -10px;
+}
+
+.search-button {
+  border-radius: 30px !important;
+  text-decoration: none;
+  padding: 5px !important;
+  transition: all 200ms ease !important;
+  box-shadow: rgba(37, 39, 89, 0.08) 0px 8px 8px 0 !important;
+}
+.searchbutton:hover {
+  cursor: pointer;
+  background: #fff;
+  color: #53a8b6;
+}
+.location {
+  border: gray;
+  border-radius: 10px;
 }
