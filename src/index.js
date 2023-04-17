@@ -60,19 +60,14 @@ function handleSubmit(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
+search("Vienna");
 
-
-function retrievePosition(coordinates) {
-  let apiKey = "63815861405dte0ec28a7f4e15fobb09";
-  let lon = coordinates.longitude;
-  let lat = coordinates.latitude;
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=${lat}&lon=${lon}&key=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayTemperature);
+function displayfahrenheitTemperature(event){
+event.preventDefault();
+let fahrenheitTemperature= (14*9)/5+32;
+let temperatureElement = document.querySelector("#temperature");
+temperatureElement.innerHTML= Math.round(fahrenheitTemperature);
 }
 
-function getCurrentLocation() {
-  navigator.geolocation.getCurrentPosition(retrievePosition);
-}
-
-let currentCity = document.querySelector("#current-location");
-currentCity.addEventListener("click", getCurrentLocation);
+let conversionfahrenheit= document.querySelector("#conversion");
+conversionfahrenheit.addEventListener("click", displayfahrenheitTemperature)
