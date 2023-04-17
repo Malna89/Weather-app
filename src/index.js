@@ -22,7 +22,7 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function dispayTemperature(response) {
+function displayTemperature(response) {
   let temperatureElement = document.querySelector("#current-temp");
   let cityElement = document.querySelector("#city");
   let description = document.querySelector("#conditions");
@@ -41,7 +41,7 @@ function dispayTemperature(response) {
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.description.icon}.png`
   );
-  iconElement.setAttribute("alt", response.data.condition.description.icon);
+  iconElement.setAttribute("alt", response.data.condition.description);
 }
 
 let apiKey = "63815861405dte0ec28a7f4e15fobb09";
@@ -49,4 +49,4 @@ let city = "Vienna";
 let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
 console.log(apiUrl);
-axios.get(apiUrl).then(dispayTemperature);
+axios.get(apiUrl).then(displayTemperature);
