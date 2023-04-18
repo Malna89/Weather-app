@@ -5,12 +5,13 @@
 
 .weather-app {
   padding: 30px;
-  border: 1px solid #a8e6cf;
-  background: radial-gradient(
-    253px at 12.6% 77.9%,
-    rgb(221, 255, 214) 0.3%,
-    rgb(214, 254, 254) 90.5%
+  border: 1px solid #f8b595;
+  background: linear-gradient(
+    44.8deg,
+    rgba(255, 136, 102, 0.67) -53.1%,
+    rgba(255, 221, 136, 0.28) 49%
   );
+
   border-radius: 10px;
   font-family: "Edu NSW ACT Foundation", cursive;
   font-weight: lighter !important;
@@ -43,7 +44,7 @@ li:first-letter {
   width: 80px;
 }
 .current-temperature strong {
-  font-size: 30px;
+  font-size: 45px;
 }
 
 small {

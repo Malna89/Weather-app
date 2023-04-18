@@ -30,7 +30,7 @@ function displayTemperature(response) {
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
-  console.log(response.data.temperature.current);
+  celsiusTemperature = response.data.temperature.current;
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
   cityElement.innerHTML = response.data.city;
   description.innerHTML = response.data.condition.description;
@@ -57,17 +57,30 @@ function handleSubmit(event) {
   console.log(cityInputElement.value);
 }
 
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-temp");
+
+  celsisusLink.classList.remove("active");
+  conversionfahrenheit.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-temp");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
+let conversionfahrenheit = document.querySelector("#conversion");
+conversionfahrenheit.addEventListener("click", displayFahrenheitTemperature);
+let celsisusLink = document.querySelector("#celsius-link");
+celsisusLink.addEventListener("click", displayCelsiusTemperature);
+
 search("Vienna");
-
-function displayfahrenheitTemperature(event){
-event.preventDefault();
-let fahrenheitTemperature= (14*9)/5+32;
-let temperatureElement = document.querySelector("#temperature");
-temperatureElement.innerHTML= Math.round(fahrenheitTemperature);
-}
-
-let conversionfahrenheit= document.querySelector("#conversion");
-conversionfahrenheit.addEventListener("click", displayfahrenheitTemperature)
