@@ -1,5 +1,13 @@
+body {
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(255, 246, 236) 39.5%,
+    rgba(100, 46, 122, 0.23) 100.2%
+  );
+}
+
 .weather-app-wrapper {
-  max-width: 700px;
+  max-width: 70%;
   margin: 30px auto;
 }
 
@@ -11,9 +19,9 @@
     rgba(255, 136, 102, 0.67) -53.1%,
     rgba(255, 221, 136, 0.28) 49%
   );
-
+  box-shadow: 10px 25px 25px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  font-family: "Edu NSW ACT Foundation", cursive;
+  font-family: "Dosis", sans-serif;
   font-weight: lighter !important;
 }
 
