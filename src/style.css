@@ -7,7 +7,7 @@ body {
 }
 
 .weather-app-wrapper {
-  max-width: 70%;
+  max-width: 700 px;
   margin: 30px auto;
 }
 
@@ -82,4 +82,8 @@ a {
 .location {
   border: gray;
   border-radius: 10px;
+}
+
+li {
+  font-size: 18px;
 }
