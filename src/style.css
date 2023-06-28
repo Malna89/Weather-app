@@ -57,6 +57,8 @@ li:first-letter {
 
 small {
   font-size: 13px !important;
+  display: block !important;
+  text-align: center !important;
 }
 a {
   text-decoration: none !important;
