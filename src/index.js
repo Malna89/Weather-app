@@ -35,31 +35,39 @@ function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = '<div class="row">';
   forecast.forEach(function (forecastDay, index) {
-    if (index < 5) {
-      forecastHTML +=
-        <div class="col-sm">
-          <div class="weather-forecast-date">
-            ${formatDay(forecastDay.time)}
-          </div>
-          <img src="${forecastDay.condition.icon_url}" alt="" width="42" />
-          <div class="weather-forecast-temperature">
-            <span class="weather-forecast-temperature-max">
-              ${Math.round(forecastDay.temperature.maximum)}°
-            </span>
-            <span class="weather-forecast-temperature-min">
-              ${Math.round(forecastDay.temperature.minimum)}°
-            </span>
-          </div>
-        </div>;
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+      <div class="col-2">
+        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+        <img
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
+          alt=""
+          width="42"
+        />
+        <div class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-max"> ${Math.round(
+            forecastDay.temp.max
+          )}° </span>
+          <span class="weather-forecast-temperature-min"> ${Math.round(
+            forecastDay.temp.min
+          )}° </span>
+        </div>
+      </div>
+  `;
     }
   });
 
-  forecastHTML += '</div>'; 
+  forecastHTML += "</div>";
 
   forecastElement.innerHTML = forecastHTML;
+
+  forecastHTML += "</div>";
+  forecastElement.innerHTML = forecastHTML;
 }
-forecastHTML += "</div>";
-forecastElement.innerHTML = forecastHTML;
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#current-temp");
   let cityElement = document.querySelector("#city");
@@ -85,6 +93,13 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.condition.description);
 
   getForecast(response.data.coordinates);
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "f5029b784306910c19746e40c14d6cd3";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.latitude}&lon=${coordinates.longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function search(city) {
@@ -127,5 +142,3 @@ let celsisusLink = document.querySelector("#celsius-link");
 celsisusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Vienna");
-
-displayForecast();}
