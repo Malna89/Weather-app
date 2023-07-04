@@ -88,6 +88,7 @@ a {
 
 li {
   font-size: 18px;
+  text-align: left;
 }
 .weather-forecast {
   margin-top: 20px;
